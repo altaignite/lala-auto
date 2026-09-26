@@ -13,18 +13,16 @@ import {
   X,
 } from 'lucide-react'
 
-const heroImage = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Car%20Rental%203-fhOEWv8kxugPianx8liqo6a2DMSXaO.webp'
-const secondImage = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Car%20Rental%202-pIURTJrTO0pQN2yNw3aT47dHvNtCKz.webp'
-
+const heroImage = 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=90'
 const cars = [
-  ['Hatchback', 'Toyota Yaris', '$70', 'Automatic/Manual', '4.7', 'white'],
-  ['Minivan', 'Alphard', '$95', 'Automatic', '4.8', 'black'],
-  ['SUV', 'Lexus NX-300', '$88', 'Automatic', '4.7', 'white'],
-  ['Sedan', 'Camry', '$50', 'Automatic', '4.9', 'silver'],
-  ['Minivan', 'Innova', '$85', 'Manual', '4.9', 'dark'],
-  ['SUV', 'Toyota Fortuner', '$75', 'Automatic', '4.8', 'white'],
-  ['MPV', 'Innova Zenix', '$60', 'Automatic/Manual', '4.8', 'silver'],
-  ['SUV', 'Terios', '$70', 'Automatic/Manual', '4.6', 'white'],
+  ['Hatchback', 'Toyota Yaris', '$70', 'Automatic/Manual', '4.7', 'https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=900&q=85'],
+  ['Minivan', 'Alphard', '$95', 'Automatic', '4.8', 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=85'],
+  ['SUV', 'Lexus NX-300', '$88', 'Automatic', '4.7', 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=85'],
+  ['Sedan', 'Camry', '$50', 'Automatic', '4.9', 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=85'],
+  ['Minivan', 'Innova', '$85', 'Manual', '4.9', 'https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=900&q=85'],
+  ['SUV', 'Toyota Fortuner', '$75', 'Automatic', '4.8', 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=85'],
+  ['MPV', 'Innova Zenix', '$60', 'Automatic/Manual', '4.8', 'https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=900&q=85'],
+  ['SUV', 'Terios', '$70', 'Automatic/Manual', '4.6', 'https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=900&q=85'],
 ]
 
 function Logo() {
@@ -50,7 +48,7 @@ function CarCard({ car, index }: { car: string[]; index: number }) {
     <article className="car-card">
       <div className="car-image">
         <span className="tag">{car[0]}</span>
-        <div className={`car-shape car-${index % 4} ${car[5]}`}><CarFront /></div>
+        <img src={car[5]} alt={`${car[1]} rental car`} loading="lazy" />
       </div>
       <h3>{car[1]}</h3>
       <p className="muted"><CarFront /> {car[3]}</p>
@@ -80,10 +78,7 @@ export default function Page() {
 
       <div className="content">
         <section id="cars" className="section"><div className="section-heading"><div><h2>Top picks vehicle this month</h2><p>Experience the epitome of amazing journey with our top picks.</p></div></div><div className="car-grid">{cars.map((car, i) => <CarCard key={car[1]} car={car} index={i} />)}</div><button className="see-more">See More</button></section>
-        <section id="discover" className="section discover"><h2>Discover popular car rental in worldwide</h2><p>Explore a diverse and extensive range of rental cars.</p><div className="chips">{['Car Rental in Bandung','Car Rental in Jakarta','Car Rental in Bali','Car Rental in Sydney','Car Rental in New York','Car Rental in Seoul','Car Rental in Tokyo','Car Rental in Paris','Car Rental in Jeju Island','Car Rental in Los Angeles','Car Rental in Berlin','Car Rental in Munich','Car Rental in Yogyakarta','Car Rental in Liverpool','Car Rental in Glasgow','Car Rental in Birmingham'].map(x => <span key={x}>{x}</span>)}</div></section>
-        <section className="section deals"><div className="deal-heading"><h2>Enjoy extra miles with our best deal</h2><button>See All <ArrowRight /></button></div><div className="deal-grid"><div className="deal" style={{ backgroundImage: `linear-gradient(90deg, rgba(4,12,12,.7), rgba(4,12,12,.1)), url(${secondImage})` }}><strong>40%</strong><p>Experience the Holidays with<br />Our Festive Promotions</p></div><div className="deal alt" style={{ backgroundImage: `linear-gradient(90deg, rgba(4,12,12,.7), rgba(4,12,12,.1)), url(${heroImage})` }}><strong>65%</strong><p>Unlock Online-Only Discounts for a<br />Seamless Booking Experience</p></div></div></section>
-        <div className="brands"><span>▽ HELLOSIGN</span><span>◒ DOORDASH</span><span>coinbase</span><span>◈ Airtable</span><span>◢ pendo</span><span>◈ treehouse</span></div>
-        <section className="feature-grid"><div className="feature small" style={{backgroundImage: `linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.05)), url(${secondImage})`}}><h2>Explore more to get your<br />comfort zone</h2><p>Book your perfect stay with us.</p><button>Booking Now <ArrowRight /></button></div><div className="feature wide" style={{backgroundImage: `linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.4)), url(${heroImage})`}}><h2>Beyond accomodation, creating<br />memories of a lifetime</h2></div><div className="feature small gauge"><h2>Vehicle Available</h2><strong>3,490</strong></div></section>
+
       </div>
       <footer id="footer"><div><Logo /><p>Our mission is to equip modern explorers<br />with cutting-edge, functional, and stylish<br />bags that elevate every adventure.</p></div><div><b>About</b><a>About Us</a><a>Blog</a><a>Career</a></div><div><b>Support</b><a>Contact Us</a><a>Return</a><a>FAQ</a></div><div className="updates"><b>Get Updates</b><div><input placeholder="Enter your email" /><button>Subscribe</button></div><p className="social"><span>◎</span><X /><span>f</span><CircleHelp /><span>♪</span></p></div><small className="copyright">©2024 LALA G. All rights reserved.</small><div className="legal">Privacy Policy　 Terms of Service</div></footer>
     </main>
