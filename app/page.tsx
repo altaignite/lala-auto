@@ -8,18 +8,10 @@ import {
   Globe2,
   Heart,
   Menu,
-  Quote,
-  Star,
   X,
 } from 'lucide-react'
 
 const heroImage = 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=90'
-const reviews = [
-  ['Maya R.', 'The whole experience felt effortless. The car was spotless, comfortable, and ready exactly on time.', 'Toyota Yaris', 'Bali, Indonesia'],
-  ['Daniel K.', 'A genuinely premium rental service. Clear pricing, quick support, and a beautiful vehicle for our trip.', 'Lexus NX-300', 'Jakarta, Indonesia'],
-  ['Nadia S.', 'LALA G made our weekend road trip simple. I will absolutely book with them again.', 'Toyota Fortuner', 'Bandung, Indonesia'],
-]
-
 const cars = [
   ['Hatchback', 'Toyota Yaris', '$70', 'Automatic/Manual', '4.7', 'https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=900&q=85'],
   ['Minivan', 'Alphard', '$95', 'Automatic', '4.8', 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=85'],
@@ -44,7 +36,7 @@ function CarCard({ car, index }: { car: string[]; index: number }) {
         <img src={car[5]} alt={`${car[1]} rental car`} loading="lazy" />
       </div>
       <div className="car-card-body">
-        <div className="car-name-row"><h3>{car[1]}</h3><span className="rating">★ {car[4]}</span></div>
+        <div className="car-name-row"><h3>{car[1]}</h3><span className="availability">Available now</span></div>
         <div className="car-details"><span><CarFront /> {car[3]}</span><span>● {index + 3} seats</span><span>▣ {index % 3 + 1} bags</span></div>
         <div className="car-footer"><div><small>Starting from</small><div className="price">{car[2]} <em>/ day</em></div></div><button className="view-car">View car <ArrowRight /></button></div>
       </div>
@@ -70,8 +62,7 @@ export default function Page() {
 
       <div className="content">
         <section id="cars" className="section"><div className="section-heading"><div><span className="section-kicker">OUR FLEET</span><h2>Choose your perfect ride</h2><p>Well-maintained vehicles for city days, weekend escapes, and everything between.</p></div><a className="fleet-link" href="#footer">View all cars <ArrowRight /></a></div><div className="car-grid">{cars.map((car, i) => <CarCard key={car[1]} car={car} index={i} />)}</div><button className="see-more">See More</button></section>
-        <section className="reviews-section"><div className="reviews-heading"><div><span className="section-kicker">REAL STORIES</span><h2>Loved by drivers everywhere</h2><p>More than 4,000 journeys started with LALA G.</p></div><div className="review-score"><strong>4.9</strong><span><span className="stars">★★★★★</span> Average customer rating</span></div></div><div className="reviews-grid">{reviews.map((review) => <article className="review-card" key={review[0]}><Quote className="quote-icon" /><p className="review-text">{review[1]}</p><div className="review-stars"><Star /><Star /><Star /><Star /><Star /></div><div className="review-author"><span className="avatar">{review[0][0]}</span><div><strong>{review[0]}</strong><small>{review[2]} · {review[3]}</small></div></div></article>)}</div></section>
-      </div>
+              </div>
       <footer id="footer"><div className="footer-brand"><Logo /><span className="footer-kicker">DRIVE WELL. GO FURTHER.</span><p>Premium vehicles for modern explorers,<br />with simple booking and dependable service<br />for every kind of journey.</p><div className="footer-stat"><strong>4.9/5</strong><span>from 4,000+ happy renters</span></div></div><div><b>Explore</b><a href="#cars">Our fleet</a><a href="#cars">Locations</a><a href="#cars">How it works</a></div><div><b>Company</b><a href="#footer">About LALA G</a><a href="#footer">Careers</a><a href="#footer">Contact</a></div><div className="updates"><b>Stay in the know</b><p>Get offers, new cars, and travel inspiration in your inbox.</p><div><input placeholder="Your email address" /><button>Join</button></div><p className="social"><span>◎</span><span>in</span><span>f</span><X /></p></div><small className="copyright">©2024 LALA G Auto Rentals. All rights reserved.</small><div className="legal">Privacy Policy　 Terms of Service</div></footer>
     </main>
   )
