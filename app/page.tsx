@@ -3,13 +3,10 @@
 import { useState } from 'react'
 import {
   ArrowRight,
-  CalendarDays,
   CarFront,
   CircleHelp,
   Globe2,
-  MapPin,
   Menu,
-  Search,
   X,
 } from 'lucide-react'
 
@@ -27,20 +24,6 @@ const cars = [
 
 function Logo() {
   return <div className="logo"><span className="logo-mark">✣</span><span>LALA G</span></div>
-}
-
-function SearchPanel() {
-  return (
-    <div className="search-panel">
-      <div className="field"><small>Departure</small><span><MapPin /> City, airport or station</span></div>
-      <div className="round-trip"><small>Round-trip?</small><span className="switch"><i /></span></div>
-      <div className="field"><small>Return Location</small><span><MapPin /> City, airport or station</span></div>
-      <div className="field"><small>Pick Up Date &amp; Time</small><span><CalendarDays /> 14 Jan 2024　 10:30 AM</span></div>
-      <div className="field"><small>Return Date &amp; Time</small><span><CalendarDays /> 19 Jan 2024　 04:30 PM</span></div>
-      <div className="filter"><small>Filter:</small><b>Without Driver</b><span>With Driver</span></div>
-      <button className="search-btn">Search <ArrowRight /></button>
-    </div>
-  )
 }
 
 function CarCard({ car, index }: { car: string[]; index: number }) {
@@ -67,12 +50,11 @@ export default function Page() {
         <div className="hero" style={{ backgroundImage: `linear-gradient(180deg, rgba(11,24,31,.34), rgba(10,12,14,.72)), url(${heroImage})` }}>
           <header className="nav">
             <Logo />
-            <nav className={menuOpen ? 'open' : ''}><a href="#cars">Hotel</a><a href="#cars">Flight</a><a href="#cars">Train</a><a href="#discover">Travel</a><a href="#cars">Car Rental</a></nav>
-            <div className="nav-right"><div className="nav-search"><input placeholder="Search destination..." aria-label="Search destination" /><Search /></div><span><Globe2 /> EN</span><a href="#footer">Log In</a><button>Sign Up</button></div>
+            <nav className={menuOpen ? 'open' : ''}><a href="#cars">Our Fleet</a><a href="#cars">Locations</a><a href="#cars">How It Works</a><a href="#footer">Support</a></nav>
+            <div className="nav-right"><a className="nav-help" href="#footer"><CircleHelp /> Need help?</a><span><Globe2 /> EN</span><a href="#footer">Log In</a><button className="reserve-btn">Reserve a car <ArrowRight /></button></div>
             <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X /> : <Menu />}</button>
           </header>
-          <div className="hero-title">Rent a Car for Every Journey</div>
-          <SearchPanel />
+          <div className="hero-copy"><span className="eyebrow">LALA G AUTO RENTALS</span><div className="hero-title">Your journey starts with the right car.</div><p>Reliable vehicles, flexible rentals, and a smoother way to get where you&apos;re going.</p><a className="hero-cta" href="#cars">Explore our fleet <ArrowRight /></a></div>
         </div>
       </section>
 
