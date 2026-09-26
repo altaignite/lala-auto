@@ -6,6 +6,7 @@ import {
   CarFront,
   CircleHelp,
   Globe2,
+  Heart,
   Menu,
   X,
 } from 'lucide-react'
@@ -31,13 +32,14 @@ function CarCard({ car, index }: { car: string[]; index: number }) {
     <article className="car-card">
       <div className="car-image">
         <span className="tag">{car[0]}</span>
+        <button className="favorite" aria-label={`Save ${car[1]}`}><Heart /></button>
         <img src={car[5]} alt={`${car[1]} rental car`} loading="lazy" />
       </div>
-      <h3>{car[1]}</h3>
-      <p className="muted"><CarFront /> {car[3]}</p>
-      <p className="stats">♧  {index + 3}　▣  {index % 3 + 1}　☆ {car[4]}</p>
-      <small>Start from</small>
-      <div className="price">{car[2]} <em>/ day</em></div>
+      <div className="car-card-body">
+        <div className="car-name-row"><h3>{car[1]}</h3><span className="rating">★ {car[4]}</span></div>
+        <div className="car-details"><span><CarFront /> {car[3]}</span><span>● {index + 3} seats</span><span>▣ {index % 3 + 1} bags</span></div>
+        <div className="car-footer"><div><small>Starting from</small><div className="price">{car[2]} <em>/ day</em></div></div><button className="view-car">View car <ArrowRight /></button></div>
+      </div>
     </article>
   )
 }
